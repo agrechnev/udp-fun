@@ -20,4 +20,6 @@ set(ALL_LIBS ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${WINSOCK})
 
 # Build all examples
 add_subdirectory(cli1)
+add_subdirectory(cli2)
 add_subdirectory(serv1)
+add_subdirectory(serv2)
