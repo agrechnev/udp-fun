@@ -19,7 +19,8 @@ include_directories(${Boost_INCLUDE_DIRS})
 set(ALL_LIBS ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${WINSOCK})
 
 # Build all examples
-add_subdirectory(cli1)
-add_subdirectory(cli2)
-add_subdirectory(serv1)
-add_subdirectory(serv2)
+add_subdirectory(udpcli1)
+add_subdirectory(udpcli2)
+add_subdirectory(udpserv1)
+add_subdirectory(udpserv2)
+add_subdirectory(fun)

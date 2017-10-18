@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 set(CMAKE_CXX_STANDARD 14)
-project(serv2)
+project(udpserv1)
 
 set(SRCS
         server.cpp
