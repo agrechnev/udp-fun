@@ -5,4 +5,4 @@ set (CMAKE_CXX_STANDARD 14)
 
 add_subdirectory(echo_tc)
 add_subdirectory(echo_tbs)
-#add_subdirectory(echo_tas)
+add_subdirectory(echo_tas)

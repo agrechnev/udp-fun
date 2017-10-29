@@ -14,20 +14,30 @@ int main() {
     io_service io;
     tcp::resolver r(io);
     tcp::socket s(io);
-    connect(s, r.resolve({"localhost", "12345"}));
+//    boost::system::error_code e;
 
-    cout << "Enter message :";
-    string msg;
-    getline(cin, msg);
-    write(s, buffer(msg));
+    try {
+        connect(s, r.resolve({"localhost", "12345"}));
 
-    cout << "Write finished !" << endl;
+        for (;;) {
+            cout << "Enter message :";
+            string msg;
+            getline(cin, msg);
+            write(s, buffer(msg));
 
-    vector<char> rdBuf(MAX_SIZE);
-    size_t len = s.read_some(buffer(rdBuf));
-    cout << "Reply is : ";
-    cout.write(rdBuf.data(), len);
-    cout << endl;
+            vector<char> rdBuf(MAX_SIZE);
+            size_t len = s.read_some(buffer(rdBuf));
+
+            cout << "Reply is : ";
+            cout.write(rdBuf.data(), len);
+            cout << endl;
+
+            if ("quit" == msg)
+                break;  // Nice quit
+        }
+    } catch (exception & e) {
+        cerr << e.what() << endl;
+    }
 
     return 0;
 }
